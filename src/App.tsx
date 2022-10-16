@@ -27,9 +27,11 @@
 
 import React, {useEffect, useState} from 'react';
 import Card, {CardVariant} from './components/Card';
-import UserList from './components/UserList';
+// import UserList from './components/UserList';
 import {IUser} from './types/types';
 import axios from 'axios';
+import UserItem from './components/UserItem';
+import List from './components/List';
 
 const App = () => {
 
@@ -59,7 +61,9 @@ const App = () => {
         <button>Кнопка</button>
         gggg
       </Card>
-      <UserList users={users} />
+      <List items={users}
+            renderItem={(user: IUser) => <UserItem user={user} key={user.id}/>}
+      />
     </div>
   );
 };
