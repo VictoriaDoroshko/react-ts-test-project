@@ -32,8 +32,9 @@ import {IUser} from './types/types';
 import {ITodo} from './types/types';
 import axios from 'axios';
 import UserItem from './components/UserItem';
-import TodoItem from './components/UserItem';
+import TodoItem from './components/TodoItem';
 import List from './components/List';
+import EventExample from './components/EventExample'
 
 
 const App = () => {
@@ -66,6 +67,7 @@ const App = () => {
 
   return (
     <div>
+      <EventExample />
       <Card 
         // onClick={(num) => console.log('click', num)} 
         variant={CardVariant.primary} 
@@ -78,9 +80,10 @@ const App = () => {
       <List items={users}
             renderItem={(user: IUser) => <UserItem user={user} key={user.id}/>}
       />
-      <List items={todos}
+        <List
+            items={todos}
             renderItem={(todo: ITodo) => <TodoItem todo={todo} key={todo.id}/>}
-      />
+        />
     </div>
   );
 };
